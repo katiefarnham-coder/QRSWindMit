@@ -7,16 +7,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Montserrat',sans-serif;background:#d0d8e4;color:#22376e;font-size:14px;min-height:100vh}
+body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-size:14px;min-height:100vh}
 
-.page-wrap{max-width:680px;margin:0 auto;background:#f0f4f9;min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.18)}
+.page-wrap{width:100%}
+.content-wrap{max-width:680px;margin:0 auto;background:#f0f4f9;box-shadow:0 2px 24px rgba(0,0,0,.10)}
 
-.hdr{background:#22376e;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
+.hdr{background:#22376e;padding:16px 0}.hdr-inner{max-width:680px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
 .logo-img{height:44px;width:auto;display:block}
 .tagline{font-size:10px;font-weight:700;color:#FFD24E;letter-spacing:.1em;text-align:right}
 .accent-bar{height:3px;background:linear-gradient(90deg,#4e9dd6,#FFD24E)}
 
 .hero{background:#4e9dd6;padding:16px 20px;display:flex;gap:14px;align-items:center}
+.hero-inner{max-width:680px;margin:0 auto;display:flex;gap:14px;align-items:center;width:100%}
 .hero-check{height:42px;width:auto;flex-shrink:0}
 .hero-text h1{font-size:15px;font-weight:800;color:#fff;letter-spacing:.01em}
 .hero-text p{font-size:11px;color:rgba(255,255,255,.85);margin-top:3px;line-height:1.5}
@@ -93,7 +95,8 @@ body{font-family:'Montserrat',sans-serif;background:#d0d8e4;color:#22376e;font-s
 .cta-contact strong{color:#4e9dd6}
 .restart-btn{display:block;width:100%;padding:10px;background:transparent;border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);border-radius:7px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;cursor:pointer;margin-top:8px}
 .restart-btn:hover{border-color:rgba(255,255,255,.6);color:#fff}
-.footer{background:#22376e;padding:12px 20px;display:flex;justify-content:space-between;align-items:center}
+.footer{background:#22376e;padding:12px 20px}
+.footer-inner{max-width:680px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
 .footer span{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.03em}
 .footer .site{color:#4e9dd6;font-size:9px;font-weight:600}
 </style>
@@ -102,14 +105,14 @@ body{font-family:'Montserrat',sans-serif;background:#d0d8e4;color:#22376e;font-s
 <div class="page-wrap">
 
 <!-- HEADER -->
-<div class="hdr">
+<div class="hdr"><div class="hdr-inner">
   <img class="logo-img" src="https://qualityroofingsolutions.com/wp-content/uploads/2025/10/logo-quality-roofing-solutions-white.svg" alt="Quality Roofing Solutions">
   <div class="tagline">When Quality Counts</div>
-</div>
+</div></div>
 <div class="accent-bar"></div>
 
 <!-- HERO -->
-<div class="hero">
+<div class="hero"><div class="hero-inner">
   <img class="hero-check" src="https://qualityroofingsolutions.com/wp-content/uploads/2026/03/CheckMark_Yellow.png" alt="">
   <div class="hero-text">
     <h1>Wind Mitigation Savings Estimator</h1>
@@ -117,7 +120,7 @@ body{font-family:'Montserrat',sans-serif;background:#d0d8e4;color:#22376e;font-s
   </div>
 </div>
 
-<div class="steps-wrap" id="stepsWrap">
+<div class="content-wrap"><div class="steps-wrap" id="stepsWrap">
 
   <!-- STEP 1 -->
   <div class="step active" id="step1">
@@ -445,12 +448,12 @@ body{font-family:'Montserrat',sans-serif;background:#d0d8e4;color:#22376e;font-s
     <div class="cta-contact">Or visit <strong>QualityRoofingSolutions.com</strong></div>
     <button class="restart-btn" onclick="restart()">&larr; Start Over</button>
   </div>
-</div>
+</div></div>
 
-<div class="footer">
+<div class="footer"><div class="footer-inner">
   <span>Estimates are for reference only. Actual savings vary by insurer.</span>
   <span class="site">QualityRoofingSolutions.com</span>
-</div>
+</div></div>
 
 </div><!-- end page-wrap -->
 
@@ -527,6 +530,6 @@ function restart(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
-</div>
+
 </body>
 </html>
