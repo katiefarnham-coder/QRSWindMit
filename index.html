@@ -7,7 +7,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-size:14px}
+body{font-family:'Montserrat',sans-serif;background:#d0d8e4;color:#22376e;font-size:14px;min-height:100vh}
+
+.page-wrap{max-width:480px;margin:0 auto;background:#f0f4f9;min-height:100vh;box-shadow:0 0 40px rgba(0,0,0,.18)}
 
 .hdr{background:#22376e;padding:16px 20px;display:flex;align-items:center;justify-content:space-between}
 .logo-img{height:44px;width:auto;display:block}
@@ -39,11 +41,9 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
 .opt-card.selected{border-color:#22376e;background:#ebf1fb}
 .opt-card.selected::after{content:'✓';position:absolute;top:8px;right:10px;font-size:12px;font-weight:800;color:#22376e}
 
-/* QRS STANDARD — dark navy/yellow (steps 3 & 4) */
 .qrs-badge{background:#22376e;color:#FFD24E;font-size:9px;font-weight:800;letter-spacing:.08em;padding:5px 8px;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1}
 .qrs-badge .dot{width:6px;height:6px;border-radius:50%;background:#FFD24E;flex-shrink:0}
 
-/* QRS RECOMMENDED — light blue/white (step 5) */
 .qrs-badge-blue{background:#4e9dd6;color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;padding:5px 8px;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1}
 .qrs-badge-blue .dot{width:6px;height:6px;border-radius:50%;background:#fff;flex-shrink:0}
 
@@ -99,6 +99,7 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
 </style>
 </head>
 <body>
+<div class="page-wrap">
 
 <!-- HEADER -->
 <div class="hdr">
@@ -112,7 +113,7 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
   <img class="hero-check" src="https://qualityroofingsolutions.com/wp-content/uploads/2026/03/CheckMark_Yellow.png" alt="">
   <div class="hero-text">
     <h1>Wind Mitigation Savings Estimator</h1>
-    <p>Answer a few simple questions — we'll show you how much you could save on your homeowners insurance.</p>
+    <p>Answer a few simple questions &mdash; we'll show you how much you could save on your homeowners insurance.</p>
   </div>
 </div>
 
@@ -152,7 +153,7 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
     </div>
   </div>
 
-  <!-- STEP 2: Roof Shape — no badge -->
+  <!-- STEP 2: Roof Shape -->
   <div class="step" id="step2">
     <div class="step-header" onclick="toggleStep(2)">
       <div class="step-num">2</div>
@@ -162,7 +163,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
     <div class="step-body">
       <p class="step-hint">Look at your home from the street &mdash; which one matches best?</p>
       <div class="opt-grid cols2">
-
         <div class="opt-card" data-group="roofShape" data-val="hip" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="52" viewBox="0 0 90 52">
@@ -176,7 +176,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="best-badge">BIGGEST DISCOUNT</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="roofShape" data-val="gable" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="52" viewBox="0 0 90 52">
@@ -189,7 +188,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">Triangle shapes on the ends &mdash; most common style.</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="roofShape" data-val="flat" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="52" viewBox="0 0 90 52">
@@ -200,7 +198,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">Mostly flat top &mdash; common on commercial or modern homes.</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="roofShape" data-val="combo" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="52" viewBox="0 0 90 52">
@@ -212,13 +209,12 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">Has both hip and gable sections.</div>
           </div>
         </div>
-
       </div>
       <button class="next-btn" onclick="nextStep(2)">Next &rarr; Deck Nailing</button>
     </div>
   </div>
 
-  <!-- STEP 3: Deck Attachment — QRS STANDARD dark badge -->
+  <!-- STEP 3: Deck Attachment -->
   <div class="step" id="step3">
     <div class="step-header" onclick="toggleStep(3)">
       <div class="step-num">3</div>
@@ -228,7 +224,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
     <div class="step-body">
       <p class="step-hint">This is how the plywood under your shingles is fastened. Not sure? Choose QRS Standard &mdash; that&rsquo;s what we install on every job.</p>
       <div class="opt-grid cols2">
-
         <div class="opt-card" data-group="deckAttach" data-val="8d4" onclick="selectOpt(this)">
           <div class="qrs-badge"><div class="dot"></div>QRS STANDARD</div>
           <div class="opt-card-inner">
@@ -245,40 +240,30 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="best-badge">BIGGEST DISCOUNT</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="deckAttach" data-val="8d6stag" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
               <rect x="5" y="8" width="80" height="42" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/>
-              <circle cx="20" cy="21" r="3.5" fill="#22376e"/>
-              <circle cx="45" cy="21" r="3.5" fill="#22376e"/>
-              <circle cx="70" cy="21" r="3.5" fill="#22376e"/>
-              <circle cx="32" cy="37" r="3.5" fill="#22376e"/>
-              <circle cx="58" cy="37" r="3.5" fill="#22376e"/>
+              <circle cx="20" cy="21" r="3.5" fill="#22376e"/><circle cx="45" cy="21" r="3.5" fill="#22376e"/><circle cx="70" cy="21" r="3.5" fill="#22376e"/>
+              <circle cx="32" cy="37" r="3.5" fill="#22376e"/><circle cx="58" cy="37" r="3.5" fill="#22376e"/>
               <line x1="5" y1="29" x2="85" y2="29" stroke="#22376e" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
             </svg>
             <div class="opt-name">8d Nails &mdash; Staggered</div>
             <div class="opt-desc">Alternating rows of nails. Good hold.</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="deckAttach" data-val="8d6" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
               <rect x="5" y="8" width="80" height="42" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/>
-              <circle cx="20" cy="21" r="3.5" fill="#22376e"/>
-              <circle cx="45" cy="21" r="3.5" fill="#22376e"/>
-              <circle cx="70" cy="21" r="3.5" fill="#22376e"/>
-              <circle cx="20" cy="37" r="3.5" fill="#22376e"/>
-              <circle cx="45" cy="37" r="3.5" fill="#22376e"/>
-              <circle cx="70" cy="37" r="3.5" fill="#22376e"/>
+              <circle cx="20" cy="21" r="3.5" fill="#22376e"/><circle cx="45" cy="21" r="3.5" fill="#22376e"/><circle cx="70" cy="21" r="3.5" fill="#22376e"/>
+              <circle cx="20" cy="37" r="3.5" fill="#22376e"/><circle cx="45" cy="37" r="3.5" fill="#22376e"/><circle cx="70" cy="37" r="3.5" fill="#22376e"/>
               <line x1="5" y1="29" x2="85" y2="29" stroke="#22376e" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/>
             </svg>
             <div class="opt-name">8d Nails &mdash; Wider Spacing</div>
             <div class="opt-desc">Nails spaced further apart. Some discount.</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="deckAttach" data-val="unknown" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
@@ -289,13 +274,12 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">An inspector will check this. We&rsquo;ll find out for you.</div>
           </div>
         </div>
-
       </div>
       <button class="next-btn" onclick="nextStep(3)">Next &rarr; Roof-to-Wall Connection</button>
     </div>
   </div>
 
-  <!-- STEP 4: Roof to Wall — QRS STANDARD dark badge -->
+  <!-- STEP 4: Roof to Wall -->
   <div class="step" id="step4">
     <div class="step-header" onclick="toggleStep(4)">
       <div class="step-num">4</div>
@@ -305,7 +289,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
     <div class="step-body">
       <p class="step-hint">This metal connector lives inside your attic &mdash; you&rsquo;d need to look up there, or an inspector checks it. Not sure? Choose QRS Standard.</p>
       <div class="opt-grid cols2">
-
         <div class="opt-card" data-group="roofWall" data-val="doubleWraps" onclick="selectOpt(this)">
           <div class="qrs-badge"><div class="dot"></div>QRS STANDARD</div>
           <div class="opt-card-inner">
@@ -321,7 +304,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="best-badge">BIGGEST DISCOUNT</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="roofWall" data-val="singleWraps" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
@@ -334,7 +316,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">One strap wraps over the rafter. Good hold.</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="roofWall" data-val="clips" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
@@ -347,7 +328,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">Small metal clip on one side of the rafter. Some credit.</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="roofWall" data-val="toenails" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
@@ -361,13 +341,12 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">Just angled nails &mdash; common in older homes. No extra credit.</div>
           </div>
         </div>
-
       </div>
       <button class="next-btn" onclick="nextStep(4)">Next &rarr; Windows &amp; Doors</button>
     </div>
   </div>
 
-  <!-- STEP 5: Openings — QRS RECOMMENDED light blue badge -->
+  <!-- STEP 5: Openings -->
   <div class="step" id="step5">
     <div class="step-header" onclick="toggleStep(5)">
       <div class="step-num">5</div>
@@ -377,7 +356,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
     <div class="step-body">
       <p class="step-hint">Wind gets in through openings and can blow your roof off from the inside. This one makes a big difference.</p>
       <div class="opt-grid cols2">
-
         <div class="opt-card" data-group="openings" data-val="impact" onclick="selectOpt(this)">
           <div class="qrs-badge-blue"><div class="dot"></div>QRS RECOMMENDED</div>
           <div class="opt-card-inner">
@@ -393,7 +371,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="best-badge">BIGGEST DISCOUNT</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="openings" data-val="hurricane" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
@@ -410,7 +387,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">Roll-down or accordion shutters on all windows and doors.</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="openings" data-val="basic" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
@@ -423,7 +399,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">Removable panels you put up before storms.</div>
           </div>
         </div>
-
         <div class="opt-card" data-group="openings" data-val="none" onclick="selectOpt(this)">
           <div class="opt-card-inner">
             <svg width="90" height="58" viewBox="0 0 90 58">
@@ -435,7 +410,6 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
             <div class="opt-desc">Standard windows with no storm upgrades.</div>
           </div>
         </div>
-
       </div>
       <button class="next-btn" onclick="nextStep(5)">See My Savings &rarr;</button>
     </div>
@@ -478,17 +452,14 @@ body{font-family:'Montserrat',sans-serif;background:#f0f4f9;color:#22376e;font-s
   <span class="site">QualityRoofingSolutions.com</span>
 </div>
 
+</div><!-- end page-wrap -->
+
 <script>
-const answers={roofShape:null,deckAttach:null,roofWall:null,openings:null};
-const optLabels={
-  hip:'Hip',gable:'Gable',flat:'Flat',combo:'Mixed',
-  '8d4':'Close Pattern','8d6stag':'Staggered','8d6':'Wide Spacing','unknown':'Not Sure',
-  doubleWraps:'Double Wraps',singleWraps:'Single Wrap',clips:'Clips',toenails:'Toe Nails',
-  impact:'Impact Glass',hurricane:'Shutters',basic:'Storm Panels',none:'None'
-};
+var answers={roofShape:null,deckAttach:null,roofWall:null,openings:null};
+var optLabels={hip:'Hip',gable:'Gable',flat:'Flat',combo:'Mixed','8d4':'Close Pattern','8d6stag':'Staggered','8d6':'Wide Spacing','unknown':'Not Sure',doubleWraps:'Double Wraps',singleWraps:'Single Wrap',clips:'Clips',toenails:'Toe Nails',impact:'Impact Glass',hurricane:'Shutters',basic:'Storm Panels',none:'None'};
 
 function selectOpt(el){
-  const group=el.dataset.group;
+  var group=el.dataset.group;
   answers[group]=el.dataset.val;
   document.querySelectorAll('[data-group="'+group+'"]').forEach(function(c){c.classList.remove('selected')});
   el.classList.add('selected');
@@ -512,38 +483,32 @@ function showResults(){
   var res=document.getElementById('resultsSection');
   res.classList.add('show');
   res.scrollIntoView({behavior:'smooth',block:'start'});
-
   var premium=parseFloat(document.getElementById('premium').value)||0;
   var state=document.getElementById('statesel').value;
   var smMap={FL:1.0,TX:0.75,SC:0.7,NC:0.7,GA:0.65,AL:0.65,LA:0.7,MS:0.65,VA:0.55,OTHER:0.5};
   var sm=smMap[state]||0.5;
-
   var discounts=[];
   var rs=answers.roofShape;
-  if(rs==='hip') discounts.push({name:'Hip roof shape',pct:25*sm,tag:'best'});
-  if(rs==='combo') discounts.push({name:'Combination roof',pct:8*sm,tag:'ok'});
+  if(rs==='hip')discounts.push({name:'Hip roof shape',pct:25*sm,tag:'best'});
+  if(rs==='combo')discounts.push({name:'Combination roof',pct:8*sm,tag:'ok'});
   var dk={'8d4':{pct:18,tag:'best'},'8d6stag':{pct:10,tag:'ok'},'8d6':{pct:5,tag:'ok'},'unknown':{pct:0}};
   var d=dk[answers.deckAttach];if(d&&d.pct>0)discounts.push({name:'Roof deck attachment',pct:d.pct*sm,tag:d.tag});
   var rw={doubleWraps:{pct:23,tag:'best'},singleWraps:{pct:14,tag:'good'},clips:{pct:8,tag:'ok'},toenails:{pct:0}};
   var r=rw[answers.roofWall];if(r&&r.pct>0)discounts.push({name:'Roof-to-wall connection',pct:r.pct*sm,tag:r.tag});
   var op={impact:{pct:22,tag:'best'},hurricane:{pct:14,tag:'good'},basic:{pct:5,tag:'ok'},none:{pct:0}};
   var o=op[answers.openings];if(o&&o.pct>0)discounts.push({name:'Opening protection',pct:o.pct*sm,tag:o.tag});
-
   var totalPct=Math.min(discounts.reduce(function(s,d){return s+d.pct},0),65);
   var totalAmt=premium*totalPct/100;
   var newPrem=premium-totalAmt;
-
   document.getElementById('rBigSave').textContent='$'+Math.round(totalAmt).toLocaleString();
   document.getElementById('rPerMonth').textContent=totalAmt>0?'That\'s $'+Math.round(totalAmt/12).toLocaleString()+' saved every month':'Contact us \u2014 an inspection may still find savings';
   document.getElementById('rPct').textContent=Math.round(totalPct)+'%';
   document.getElementById('rNew').textContent='$'+Math.round(newPrem).toLocaleString();
-
   var tagL={best:'Top credit',good:'Good credit',ok:'Some credit'};
   var rows=discounts.map(function(d){return '<div class="bk-row"><span>'+d.name+'<span class="bk-tag tag-'+d.tag+'">'+tagL[d.tag]+'</span></span><span style="font-weight:700;color:#22376e">\u2212$'+Math.round(premium*d.pct/100).toLocaleString()+'/yr</span></div>'}).join('');
   if(!rows)rows='<div class="bk-row" style="color:#999;font-size:12px;justify-content:center;padding:16px">No credits estimated \u2014 call us, an inspection may still help</div>';
   rows+='<div class="bk-row"><span>Total estimated savings</span><span>\u2212$'+Math.round(totalAmt).toLocaleString()+'/yr</span></div>';
   document.getElementById('bkRows').innerHTML=rows;
-
   if(totalAmt>0){
     var months=Math.round(175/(totalAmt/12));
     document.getElementById('inspTitle').textContent='Inspection pays for itself in '+months+' month'+(months===1?'':'s');
@@ -562,5 +527,6 @@ function restart(){
   window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
+</div>
 </body>
 </html>
