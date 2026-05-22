@@ -4,133 +4,165 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Wind Mitigation Savings Estimator | Quality Roofing Solutions</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-size:14px;min-height:100vh}
+html,body{height:100%}
+body{font-family:'Montserrat',sans-serif;background:#1a2a4a;color:#22376e;font-size:14px;min-height:100vh;display:flex;flex-direction:column}
 
-/* Full-bleed sections with centered inner content */
-.full-bleed{width:100%}
-.inner{max-width:680px;margin:0 auto;padding:0 20px}
+/* ── HEADER ── */
+.hdr{background:#22376e;padding:0;border-bottom:3px solid #4e9dd6;flex-shrink:0}
+.hdr-inner{max-width:760px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo-img{height:46px;width:auto}
+.tagline{font-size:10px;font-weight:700;color:#FFD24E;letter-spacing:.15em;text-transform:uppercase}
+.accent-bar{height:3px;background:linear-gradient(90deg,#4e9dd6 0%,#FFD24E 100%);flex-shrink:0}
 
-.hdr{background:#22376e;padding:16px 0}
-.hdr .inner{display:flex;align-items:center;justify-content:space-between}
-.logo-img{height:44px;width:auto;display:block}
-.tagline{font-size:10px;font-weight:700;color:#FFD24E;letter-spacing:.1em}
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#22376e 0%,#2d4f96 60%,#4e9dd6 100%);padding:40px 24px;flex-shrink:0;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(78,157,214,.15);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-80px;left:-40px;width:240px;height:240px;border-radius:50%;background:rgba(255,210,78,.07);pointer-events:none}
+.hero-inner{max-width:760px;margin:0 auto;display:flex;gap:20px;align-items:center;position:relative;z-index:1}
+.hero-check{height:52px;width:auto;flex-shrink:0;filter:drop-shadow(0 4px 12px rgba(0,0,0,.3))}
+.hero-text h1{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.01em;line-height:1.2}
+.hero-text h1 span{color:#FFD24E}
+.hero-text p{font-size:12px;color:rgba(255,255,255,.8);margin-top:6px;line-height:1.6;max-width:480px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:5px 12px;font-size:10px;font-weight:700;color:#FFD24E;letter-spacing:.08em;margin-top:10px;backdrop-filter:blur(4px)}
+.hero-badge span{width:6px;height:6px;border-radius:50%;background:#FFD24E;flex-shrink:0}
 
-.accent-bar{height:3px;background:linear-gradient(90deg,#4e9dd6,#FFD24E)}
+/* ── MAIN CONTENT ── */
+.page-body{flex:1;background:#eef1f7;padding:32px 24px 40px}
+.main{max-width:760px;margin:0 auto}
 
-.hero{background:#4e9dd6;padding:16px 0}
-.hero .inner{display:flex;gap:14px;align-items:center}
-.hero-check{height:42px;width:auto;flex-shrink:0}
-.hero-text h1{font-size:15px;font-weight:800;color:#fff;letter-spacing:.01em}
-.hero-text p{font-size:11px;color:rgba(255,255,255,.85);margin-top:3px;line-height:1.5}
+/* ── PROGRESS ── */
+.progress-wrap{margin-bottom:28px}
+.progress-label{display:flex;justify-content:space-between;font-size:10px;font-weight:700;color:#6b7fa3;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.progress-bar{height:4px;background:#d8dee8;border-radius:2px;overflow:hidden}
+.progress-fill{height:100%;background:linear-gradient(90deg,#4e9dd6,#22376e);border-radius:2px;transition:width .4s ease}
 
-/* Main content area */
-.main{max-width:680px;margin:0 auto;padding:16px 20px 0;background:#f0f4f9;box-shadow:0 4px 32px rgba(0,0,0,.12)}
-
-.footer{background:#22376e;padding:12px 0}
-.footer .inner{display:flex;justify-content:space-between;align-items:center;max-width:680px}
-.footer span{font-size:9px;color:rgba(255,255,255,.4);letter-spacing:.03em}
-.footer .site{color:#4e9dd6;font-size:9px;font-weight:600}
-
-/* Steps */
-.step{background:#fff;border-radius:10px;margin-bottom:12px;overflow:hidden;border:2px solid transparent;transition:border-color .2s}
-.step.active{border-color:#4e9dd6}
-.step-header{padding:14px 16px;display:flex;align-items:center;gap:12px;cursor:pointer}
-.step-num{width:28px;height:28px;border-radius:50%;background:#22376e;color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+/* ── STEP CARDS ── */
+.step{background:#fff;border-radius:14px;margin-bottom:12px;overflow:hidden;border:2px solid transparent;transition:all .2s;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.step.active{border-color:#4e9dd6;box-shadow:0 8px 32px rgba(78,157,214,.2)}
+.step.done{border-color:#e8f4fb}
+.step-header{padding:16px 20px;display:flex;align-items:center;gap:14px;cursor:pointer;user-select:none}
+.step-num{width:32px;height:32px;border-radius:50%;background:#22376e;color:#fff;font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .2s}
 .step.done .step-num{background:#4e9dd6}
+.step.active .step-num{background:#22376e;box-shadow:0 0 0 4px rgba(78,157,214,.2)}
 .step-title{font-size:13px;font-weight:700;color:#22376e;flex:1}
-.step-val{font-size:11px;color:#4e9dd6;font-weight:600;text-align:right}
-.step-body{padding:0 16px 16px;display:none}
+.step-val{font-size:11px;color:#4e9dd6;font-weight:700;background:#eef7fd;padding:3px 10px;border-radius:20px}
+.step-body{padding:0 20px 20px;display:none}
 .step.active .step-body{display:block}
-.step-hint{font-size:11px;color:#666;margin-bottom:10px;line-height:1.5}
+.step-hint{font-size:11px;color:#7a8caa;margin-bottom:14px;line-height:1.6;padding:10px 14px;background:#f5f8fc;border-radius:8px;border-left:3px solid #4e9dd6}
 
-.opt-grid{display:grid;gap:10px}
-.opt-grid.cols2{grid-template-columns:1fr 1fr}
+/* ── OPTION GRID ── */
+.opt-grid{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.opt-card{border:2px solid #e4eaf3;border-radius:10px;cursor:pointer;text-align:center;transition:all .15s;background:#fafcff;position:relative;overflow:hidden}
+.opt-card:hover{border-color:#4e9dd6;background:#f0f7ff;transform:translateY(-1px);box-shadow:0 4px 16px rgba(78,157,214,.15)}
+.opt-card.selected{border-color:#22376e;background:#ebf1fb;box-shadow:0 4px 16px rgba(34,55,110,.15)}
+.opt-card.selected::after{content:'✓';position:absolute;top:8px;right:10px;font-size:12px;font-weight:800;color:#22376e;background:#FFD24E;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:20px}
 
-.opt-card{border:2px solid #e0e8f0;border-radius:8px;cursor:pointer;text-align:center;transition:all .15s;background:#fafcff;position:relative;overflow:hidden}
-.opt-card:hover{border-color:#4e9dd6;background:#f0f7ff}
-.opt-card.selected{border-color:#22376e;background:#ebf1fb}
-.opt-card.selected::after{content:'✓';position:absolute;top:8px;right:10px;font-size:12px;font-weight:800;color:#22376e}
+.qrs-badge{background:#22376e;color:#FFD24E;font-size:9px;font-weight:800;letter-spacing:.1em;padding:6px 10px;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px}
+.qrs-badge .dot{width:5px;height:5px;border-radius:50%;background:#FFD24E;flex-shrink:0}
+.qrs-badge-blue{background:#4e9dd6;color:#fff;font-size:9px;font-weight:800;letter-spacing:.1em;padding:6px 10px;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px}
+.qrs-badge-blue .dot{width:5px;height:5px;border-radius:50%;background:#fff;flex-shrink:0}
 
-.qrs-badge{background:#22376e;color:#FFD24E;font-size:9px;font-weight:800;letter-spacing:.08em;padding:5px 8px;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1}
-.qrs-badge .dot{width:6px;height:6px;border-radius:50%;background:#FFD24E;flex-shrink:0}
-.qrs-badge-blue{background:#4e9dd6;color:#fff;font-size:9px;font-weight:800;letter-spacing:.08em;padding:5px 8px;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px;line-height:1}
-.qrs-badge-blue .dot{width:6px;height:6px;border-radius:50%;background:#fff;flex-shrink:0}
+.opt-card-inner{padding:12px 8px 10px}
+.opt-card svg{display:block;margin:0 auto 8px}
+.opt-name{font-size:11px;font-weight:800;color:#22376e;line-height:1.2}
+.opt-desc{font-size:10px;color:#7a8caa;margin-top:4px;line-height:1.4}
+.best-badge{display:inline-block;background:#e1f5ee;color:#0f6e56;font-size:9px;font-weight:800;padding:3px 8px;border-radius:20px;margin-top:5px;letter-spacing:.04em}
 
-.opt-card-inner{padding:10px 8px}
-.opt-card svg{display:block;margin:0 auto 6px}
-.opt-card .opt-name{font-size:11px;font-weight:700;color:#22376e;line-height:1.2}
-.opt-card .opt-desc{font-size:10px;color:#666;margin-top:3px;line-height:1.4}
-.best-badge{display:inline-block;background:#e1f5ee;color:#0f6e56;font-size:9px;font-weight:800;padding:2px 6px;border-radius:3px;margin-top:4px;letter-spacing:.04em}
+/* ── INPUTS ── */
+.grid2-num{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.num-field label{font-size:11px;font-weight:700;color:#22376e;display:block;margin-bottom:6px;letter-spacing:.02em}
+.num-field input,.num-field select{width:100%;padding:11px 14px;border:2px solid #e4eaf3;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:14px;color:#22376e;font-weight:600;background:#fff;-webkit-appearance:none;appearance:none;transition:border-color .15s}
+.num-field input:focus,.num-field select:focus{outline:none;border-color:#4e9dd6;box-shadow:0 0 0 3px rgba(78,157,214,.1)}
+.num-hint{font-size:10px;color:#9aa5b8;margin-top:5px}
 
-.grid2-num{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.num-field label{font-size:11px;font-weight:700;color:#22376e;display:block;margin-bottom:6px}
-.num-field input,.num-field select{width:100%;padding:10px 12px;border:2px solid #e0e8f0;border-radius:7px;font-family:'Montserrat',sans-serif;font-size:13px;color:#22376e;font-weight:600;background:#fff;-webkit-appearance:none;appearance:none}
-.num-field input:focus,.num-field select:focus{outline:none;border-color:#4e9dd6}
-.num-hint{font-size:10px;color:#888;margin-top:4px}
+/* ── NEXT BUTTON ── */
+.next-btn{width:100%;padding:14px;background:linear-gradient(135deg,#22376e,#2d4f96);color:#fff;border:none;border-radius:8px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:800;cursor:pointer;margin-top:14px;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;box-shadow:0 4px 14px rgba(34,55,110,.3)}
+.next-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(34,55,110,.4)}
 
-.next-btn{width:100%;padding:12px;background:#22376e;color:#fff;border:none;border-radius:7px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:12px;letter-spacing:.04em}
-.next-btn:hover{background:#1a2d5a}
-
-/* Results */
+/* ── RESULTS ── */
 .results{display:none}
 .results.show{display:block}
-.res-hero{background:#22376e;border-radius:10px;padding:20px;text-align:center;margin-bottom:12px}
-.res-hero .big-save{font-size:42px;font-weight:800;color:#FFD24E;line-height:1}
-.res-hero .save-label{font-size:12px;color:rgba(255,255,255,.7);margin-top:4px;letter-spacing:.06em;text-transform:uppercase}
-.res-hero .per-month{font-size:14px;color:#4e9dd6;font-weight:600;margin-top:6px}
-.res-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.stat-card{background:#fff;border-radius:8px;padding:14px;text-align:center}
-.stat-card .sv{font-size:20px;font-weight:800;color:#22376e}
-.stat-card .sl{font-size:10px;color:#888;margin-top:3px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
-.breakdown{background:#fff;border-radius:8px;overflow:hidden;margin-bottom:12px}
-.bk-title{background:#22376e;padding:10px 14px;font-size:10px;font-weight:800;color:#fff;letter-spacing:.1em;text-transform:uppercase}
-.bk-row{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;border-bottom:1px solid #f0f4f9;font-size:12px}
-.bk-row:last-child{border-bottom:none;background:#f8faff;font-weight:700}
-.bk-tag{font-size:9px;padding:2px 6px;border-radius:3px;margin-left:6px;font-weight:700}
+
+.res-hero{background:linear-gradient(135deg,#22376e 0%,#2d4f96 100%);border-radius:16px;padding:32px 24px;text-align:center;margin-bottom:16px;position:relative;overflow:hidden;box-shadow:0 8px 32px rgba(34,55,110,.3)}
+.res-hero::before{content:'';position:absolute;top:-40px;right:-40px;width:180px;height:180px;border-radius:50%;background:rgba(78,157,214,.15)}
+.res-hero::after{content:'';position:absolute;bottom:-40px;left:-20px;width:140px;height:140px;border-radius:50%;background:rgba(255,210,78,.08)}
+.res-hero-inner{position:relative;z-index:1}
+.res-label-top{font-size:10px;font-weight:700;color:rgba(255,255,255,.6);letter-spacing:.15em;text-transform:uppercase;margin-bottom:8px}
+.big-save{font-size:56px;font-weight:900;color:#FFD24E;line-height:1;letter-spacing:-.02em}
+.per-year{font-size:14px;color:rgba(255,255,255,.7);margin-top:4px;font-weight:600}
+.per-month-pill{display:inline-block;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:6px 16px;font-size:12px;font-weight:700;color:#4e9dd6;margin-top:12px}
+
+.res-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px}
+.stat-card{background:#fff;border-radius:12px;padding:18px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.stat-card .sv{font-size:24px;font-weight:900;color:#22376e}
+.stat-card .sl{font-size:10px;color:#9aa5b8;margin-top:4px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+
+.breakdown{background:#fff;border-radius:12px;overflow:hidden;margin-bottom:16px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
+.bk-title{background:#22376e;padding:12px 18px;font-size:10px;font-weight:800;color:#fff;letter-spacing:.12em;text-transform:uppercase}
+.bk-row{display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid #f0f4f9;font-size:12px}
+.bk-row:last-child{border-bottom:none;background:#f5f8fc;font-weight:800;font-size:13px}
+.bk-tag{font-size:9px;padding:2px 8px;border-radius:20px;margin-left:6px;font-weight:700}
 .tag-best{background:#e1f5ee;color:#0f6e56}
 .tag-good{background:#e8f0fb;color:#22376e}
 .tag-ok{background:#fff8e0;color:#8a6200}
-.inspection-note{background:#FFD24E;border-radius:8px;padding:14px;margin-bottom:12px;display:flex;gap:10px;align-items:flex-start}
-.inspection-note .icon img{width:28px;height:28px;object-fit:contain}
-.inspection-note .txt .t{font-size:12px;font-weight:800;color:#22376e}
-.inspection-note .txt .b{font-size:11px;color:#3a2e00;margin-top:3px;line-height:1.5}
-.cta-box{background:#22376e;border-radius:10px;padding:18px;text-align:center;margin-bottom:16px}
-.cta-box p{color:rgba(255,255,255,.8);font-size:12px;margin-bottom:12px;line-height:1.6}
-.cta-btn{display:block;background:#FFD24E;color:#22376e;font-weight:800;font-size:13px;padding:13px;border-radius:7px;cursor:pointer;border:none;font-family:'Montserrat',sans-serif;width:100%;text-decoration:none}
-.cta-btn:hover{background:#ffc900}
-.cta-contact{margin-top:10px;font-size:11px;color:rgba(255,255,255,.6)}
+
+.inspection-note{background:linear-gradient(135deg,#FFD24E,#ffc107);border-radius:12px;padding:16px 18px;margin-bottom:16px;display:flex;gap:14px;align-items:flex-start;box-shadow:0 4px 16px rgba(255,210,78,.3)}
+.inspection-note .icon img{width:32px;height:32px;object-fit:contain}
+.inspection-note .txt .t{font-size:13px;font-weight:800;color:#22376e}
+.inspection-note .txt .b{font-size:11px;color:#3a2e00;margin-top:4px;line-height:1.6}
+
+.cta-box{background:linear-gradient(135deg,#22376e 0%,#2d4f96 100%);border-radius:16px;padding:28px 24px;text-align:center;box-shadow:0 8px 32px rgba(34,55,110,.3)}
+.cta-box .cta-headline{font-size:16px;font-weight:900;color:#fff;margin-bottom:6px}
+.cta-box p{color:rgba(255,255,255,.75);font-size:12px;margin-bottom:20px;line-height:1.7}
+.cta-btn{display:block;background:#FFD24E;color:#22376e;font-weight:900;font-size:14px;padding:16px;border-radius:8px;cursor:pointer;border:none;font-family:'Montserrat',sans-serif;width:100%;text-decoration:none;letter-spacing:.04em;transition:all .2s;box-shadow:0 4px 16px rgba(255,210,78,.4)}
+.cta-btn:hover{background:#ffc900;transform:translateY(-1px);box-shadow:0 6px 24px rgba(255,210,78,.5)}
+.cta-contact{margin-top:12px;font-size:11px;color:rgba(255,255,255,.5)}
 .cta-contact strong{color:#4e9dd6}
-.restart-btn{display:block;width:100%;padding:10px;background:transparent;border:1.5px solid rgba(255,255,255,.3);color:rgba(255,255,255,.7);border-radius:7px;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;cursor:pointer;margin-top:8px}
-.restart-btn:hover{border-color:rgba(255,255,255,.6);color:#fff}
+.restart-btn{display:block;width:100%;padding:11px;background:transparent;border:1.5px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);border-radius:8px;font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;cursor:pointer;margin-top:10px;transition:all .2s;letter-spacing:.04em}
+.restart-btn:hover{border-color:rgba(255,255,255,.5);color:#fff}
+
+/* ── FOOTER ── */
+.footer{background:#22376e;padding:14px 0;flex-shrink:0;border-top:1px solid rgba(255,255,255,.08)}
+.footer-inner{max-width:760px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center}
+.footer span{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.03em}
+.footer .site{color:#4e9dd6;font-size:10px;font-weight:700}
 </style>
 </head>
 <body>
 
-<!-- HEADER — full bleed -->
+<!-- HEADER -->
 <div class="hdr">
-  <div class="inner">
+  <div class="hdr-inner">
     <img class="logo-img" src="https://qualityroofingsolutions.com/wp-content/uploads/2025/10/logo-quality-roofing-solutions-white.svg" alt="Quality Roofing Solutions">
     <div class="tagline">When Quality Counts</div>
   </div>
 </div>
 <div class="accent-bar"></div>
 
-<!-- HERO — full bleed -->
+<!-- HERO -->
 <div class="hero">
-  <div class="inner">
+  <div class="hero-inner">
     <img class="hero-check" src="https://qualityroofingsolutions.com/wp-content/uploads/2026/03/CheckMark_Yellow.png" alt="">
     <div class="hero-text">
-      <h1>Wind Mitigation Savings Estimator</h1>
-      <p>Answer a few simple questions &mdash; we'll show you how much you could save on your homeowners insurance.</p>
+      <h1>Find Out How Much You Could <span>Save on Insurance</span></h1>
+      <p>A wind mitigation inspection could lower your homeowners insurance premium significantly. Answer 5 quick questions to see your estimated savings.</p>
+      <div class="hero-badge"><span></span>FREE TO USE &nbsp;&middot;&nbsp; TAKES 2 MINUTES</div>
     </div>
   </div>
 </div>
 
-<!-- MAIN CONTENT — centered 680px panel -->
+<!-- PAGE BODY -->
+<div class="page-body">
 <div class="main">
+
+  <!-- PROGRESS -->
+  <div class="progress-wrap">
+    <div class="progress-label"><span id="progressLabel">Step 1 of 5</span><span id="progressPct">0% complete</span></div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+  </div>
 
   <div id="stepsWrap">
 
@@ -138,15 +170,16 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
     <div class="step active" id="step1">
       <div class="step-header" onclick="toggleStep(1)">
         <div class="step-num">1</div>
-        <div class="step-title">Your insurance info</div>
+        <div class="step-title">Your current insurance info</div>
         <div class="step-val" id="sv1"></div>
       </div>
       <div class="step-body">
+        <div class="step-hint">We use your current premium to calculate your exact dollar savings. Don't know it exactly? A ballpark is fine.</div>
         <div class="grid2-num">
           <div class="num-field">
             <label>Current annual premium</label>
             <input type="number" id="premium" value="4200" min="500" max="99999" step="100">
-            <div class="num-hint">Check your insurance bill or call your agent</div>
+            <div class="num-hint">Check your insurance bill or declarations page</div>
           </div>
           <div class="num-field">
             <label>State</label>
@@ -160,7 +193,7 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
               <option value="LA">Louisiana</option>
               <option value="MS">Mississippi</option>
               <option value="VA">Virginia</option>
-              <option value="OTHER">Other coastal</option>
+              <option value="OTHER">Other coastal state</option>
             </select>
           </div>
         </div>
@@ -176,11 +209,11 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
         <div class="step-val" id="sv2"></div>
       </div>
       <div class="step-body">
-        <p class="step-hint">Look at your home from the street &mdash; which one matches best?</p>
-        <div class="opt-grid cols2">
+        <div class="step-hint">Stand at the street and look at your house &mdash; which of these matches what you see?</div>
+        <div class="opt-grid">
           <div class="opt-card" data-group="roofShape" data-val="hip" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="52" viewBox="0 0 90 52"><rect x="5" y="26" width="80" height="22" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><polygon points="45,4 85,26 5,26" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/><line x1="45" y1="4" x2="25" y2="26" stroke="#22376e" stroke-width="1" stroke-dasharray="3,2" opacity=".5"/><line x1="45" y1="4" x2="65" y2="26" stroke="#22376e" stroke-width="1" stroke-dasharray="3,2" opacity=".5"/></svg>
+              <svg width="100" height="58" viewBox="0 0 100 58"><rect x="5" y="30" width="90" height="24" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><polygon points="50,4 95,30 5,30" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/><line x1="50" y1="4" x2="28" y2="30" stroke="#22376e" stroke-width="1" stroke-dasharray="3,2" opacity=".5"/><line x1="50" y1="4" x2="72" y2="30" stroke="#22376e" stroke-width="1" stroke-dasharray="3,2" opacity=".5"/></svg>
               <div class="opt-name">Hip Roof</div>
               <div class="opt-desc">All 4 sides slope down. No flat triangular ends.</div>
               <div class="best-badge">BIGGEST DISCOUNT</div>
@@ -188,23 +221,23 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
           </div>
           <div class="opt-card" data-group="roofShape" data-val="gable" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="52" viewBox="0 0 90 52"><rect x="5" y="26" width="80" height="22" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><polygon points="45,4 85,26 5,26" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/><polygon points="5,4 5,26 45,4" fill="#c5d3e8" stroke="#22376e" stroke-width="1.5"/><polygon points="85,4 85,26 45,4" fill="#c5d3e8" stroke="#22376e" stroke-width="1.5"/></svg>
+              <svg width="100" height="58" viewBox="0 0 100 58"><rect x="5" y="30" width="90" height="24" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><polygon points="50,4 95,30 5,30" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/><polygon points="5,4 5,30 50,4" fill="#c5d3e8" stroke="#22376e" stroke-width="1.5"/><polygon points="95,4 95,30 50,4" fill="#c5d3e8" stroke="#22376e" stroke-width="1.5"/></svg>
               <div class="opt-name">Gable Roof</div>
-              <div class="opt-desc">Triangle shapes on the ends &mdash; most common style.</div>
+              <div class="opt-desc">Triangle shapes visible on the ends &mdash; most common style.</div>
             </div>
           </div>
           <div class="opt-card" data-group="roofShape" data-val="flat" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="52" viewBox="0 0 90 52"><rect x="5" y="16" width="80" height="32" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><rect x="5" y="16" width="80" height="10" rx="2" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/></svg>
+              <svg width="100" height="58" viewBox="0 0 100 58"><rect x="5" y="18" width="90" height="36" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><rect x="5" y="18" width="90" height="12" rx="2" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/></svg>
               <div class="opt-name">Flat / Low Slope</div>
-              <div class="opt-desc">Mostly flat &mdash; common on commercial or modern homes.</div>
+              <div class="opt-desc">Mostly flat top &mdash; common on commercial or modern homes.</div>
             </div>
           </div>
           <div class="opt-card" data-group="roofShape" data-val="combo" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="52" viewBox="0 0 90 52"><rect x="5" y="26" width="80" height="22" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><polygon points="30,4 70,26 5,26" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/><polygon points="70,10 85,26 55,26" fill="#7cb9e8" stroke="#22376e" stroke-width="1.5"/></svg>
+              <svg width="100" height="58" viewBox="0 0 100 58"><rect x="5" y="30" width="90" height="24" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><polygon points="35,4 75,30 5,30" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/><polygon points="75,12 95,30 55,30" fill="#7cb9e8" stroke="#22376e" stroke-width="1.5"/></svg>
               <div class="opt-name">Mixed / Combo</div>
-              <div class="opt-desc">Has both hip and gable sections.</div>
+              <div class="opt-desc">Has both hip and gable sections on the same roof.</div>
             </div>
           </div>
         </div>
@@ -220,12 +253,12 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
         <div class="step-val" id="sv3"></div>
       </div>
       <div class="step-body">
-        <p class="step-hint">This is how the plywood under your shingles is fastened. Not sure? Choose QRS Standard &mdash; that's what we install on every job.</p>
-        <div class="opt-grid cols2">
+        <div class="step-hint">This is how the plywood under your shingles is fastened to the frame. Not sure? Pick <strong>QRS Standard</strong> &mdash; that's what we install on every job we do.</div>
+        <div class="opt-grid">
           <div class="opt-card" data-group="deckAttach" data-val="8d4" onclick="selectOpt(this)">
             <div class="qrs-badge"><div class="dot"></div>QRS STANDARD</div>
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="5" y="8" width="80" height="42" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><circle cx="20" cy="21" r="3.5" fill="#22376e"/><circle cx="35" cy="21" r="3.5" fill="#22376e"/><circle cx="50" cy="21" r="3.5" fill="#22376e"/><circle cx="65" cy="21" r="3.5" fill="#22376e"/><circle cx="20" cy="37" r="3.5" fill="#22376e"/><circle cx="35" cy="37" r="3.5" fill="#22376e"/><circle cx="50" cy="37" r="3.5" fill="#22376e"/><circle cx="65" cy="37" r="3.5" fill="#22376e"/><line x1="5" y1="29" x2="85" y2="29" stroke="#22376e" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="5" y="8" width="90" height="48" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><circle cx="22" cy="24" r="4" fill="#22376e"/><circle cx="38" cy="24" r="4" fill="#22376e"/><circle cx="54" cy="24" r="4" fill="#22376e"/><circle cx="70" cy="24" r="4" fill="#22376e"/><circle cx="22" cy="42" r="4" fill="#22376e"/><circle cx="38" cy="42" r="4" fill="#22376e"/><circle cx="54" cy="42" r="4" fill="#22376e"/><circle cx="70" cy="42" r="4" fill="#22376e"/><line x1="5" y1="33" x2="95" y2="33" stroke="#22376e" stroke-width="1" stroke-dasharray="4,3" opacity=".3"/></svg>
               <div class="opt-name">8d Nails &mdash; Close Pattern</div>
               <div class="opt-desc">Nails every 4&ndash;6 inches. Strongest hold possible.</div>
               <div class="best-badge">BIGGEST DISCOUNT</div>
@@ -233,23 +266,23 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
           </div>
           <div class="opt-card" data-group="deckAttach" data-val="8d6stag" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="5" y="8" width="80" height="42" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><circle cx="20" cy="21" r="3.5" fill="#22376e"/><circle cx="45" cy="21" r="3.5" fill="#22376e"/><circle cx="70" cy="21" r="3.5" fill="#22376e"/><circle cx="32" cy="37" r="3.5" fill="#22376e"/><circle cx="58" cy="37" r="3.5" fill="#22376e"/><line x1="5" y1="29" x2="85" y2="29" stroke="#22376e" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="5" y="8" width="90" height="48" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><circle cx="22" cy="24" r="4" fill="#22376e"/><circle cx="50" cy="24" r="4" fill="#22376e"/><circle cx="78" cy="24" r="4" fill="#22376e"/><circle cx="36" cy="42" r="4" fill="#22376e"/><circle cx="64" cy="42" r="4" fill="#22376e"/><line x1="5" y1="33" x2="95" y2="33" stroke="#22376e" stroke-width="1" stroke-dasharray="4,3" opacity=".3"/></svg>
               <div class="opt-name">8d Nails &mdash; Staggered</div>
               <div class="opt-desc">Alternating rows of nails. Good hold.</div>
             </div>
           </div>
           <div class="opt-card" data-group="deckAttach" data-val="8d6" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="5" y="8" width="80" height="42" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><circle cx="20" cy="21" r="3.5" fill="#22376e"/><circle cx="45" cy="21" r="3.5" fill="#22376e"/><circle cx="70" cy="21" r="3.5" fill="#22376e"/><circle cx="20" cy="37" r="3.5" fill="#22376e"/><circle cx="45" cy="37" r="3.5" fill="#22376e"/><circle cx="70" cy="37" r="3.5" fill="#22376e"/><line x1="5" y1="29" x2="85" y2="29" stroke="#22376e" stroke-width="1" stroke-dasharray="4,3" opacity=".35"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="5" y="8" width="90" height="48" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><circle cx="22" cy="24" r="4" fill="#22376e"/><circle cx="50" cy="24" r="4" fill="#22376e"/><circle cx="78" cy="24" r="4" fill="#22376e"/><circle cx="22" cy="42" r="4" fill="#22376e"/><circle cx="50" cy="42" r="4" fill="#22376e"/><circle cx="78" cy="42" r="4" fill="#22376e"/><line x1="5" y1="33" x2="95" y2="33" stroke="#22376e" stroke-width="1" stroke-dasharray="4,3" opacity=".3"/></svg>
               <div class="opt-name">8d Nails &mdash; Wider Spacing</div>
-              <div class="opt-desc">Nails spaced further apart. Some discount.</div>
+              <div class="opt-desc">Nails further apart. Some discount.</div>
             </div>
           </div>
           <div class="opt-card" data-group="deckAttach" data-val="unknown" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="5" y="8" width="80" height="42" rx="3" fill="#e8edf5" stroke="#bbb" stroke-width="1.5" stroke-dasharray="5,3"/><text x="45" y="36" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="22" font-weight="800" fill="#bbb">?</text></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="5" y="8" width="90" height="48" rx="3" fill="#eef1f7" stroke="#c8d0df" stroke-width="1.5" stroke-dasharray="6,4"/><text x="50" y="40" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="26" font-weight="900" fill="#c8d0df">?</text></svg>
               <div class="opt-name">Not Sure</div>
-              <div class="opt-desc">An inspector will check this. We'll find out for you.</div>
+              <div class="opt-desc">An inspector will check and document this for you.</div>
             </div>
           </div>
         </div>
@@ -265,36 +298,36 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
         <div class="step-val" id="sv4"></div>
       </div>
       <div class="step-body">
-        <p class="step-hint">This metal connector lives inside your attic. Not sure? Choose QRS Standard &mdash; that's what we install on every job.</p>
-        <div class="opt-grid cols2">
+        <div class="step-hint">This is a metal connector inside your attic between the roof frame and the walls. Not sure? Pick <strong>QRS Standard</strong> &mdash; that's what we install on every job.</div>
+        <div class="opt-grid">
           <div class="opt-card" data-group="roofWall" data-val="doubleWraps" onclick="selectOpt(this)">
             <div class="qrs-badge"><div class="dot"></div>QRS STANDARD</div>
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="10" y="36" width="70" height="18" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><line x1="45" y1="6" x2="25" y2="36" stroke="#22376e" stroke-width="3"/><line x1="45" y1="6" x2="65" y2="36" stroke="#22376e" stroke-width="3"/><path d="M28,30 Q45,18 62,30" stroke="#FFD24E" stroke-width="3.5" fill="none" stroke-linecap="round"/><path d="M30,36 Q45,24 60,36" stroke="#FFD24E" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="12" y="42" width="76" height="18" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><line x1="50" y1="6" x2="28" y2="42" stroke="#22376e" stroke-width="3.5"/><line x1="50" y1="6" x2="72" y2="42" stroke="#22376e" stroke-width="3.5"/><path d="M30,35 Q50,20 70,35" stroke="#FFD24E" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M32,42 Q50,27 68,42" stroke="#FFD24E" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
               <div class="opt-name">Double Wraps</div>
-              <div class="opt-desc">Two straps wrap all the way over the rafter. Strongest.</div>
+              <div class="opt-desc">Two metal straps wrap fully over the rafter. Strongest possible connection.</div>
               <div class="best-badge">BIGGEST DISCOUNT</div>
             </div>
           </div>
           <div class="opt-card" data-group="roofWall" data-val="singleWraps" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="10" y="36" width="70" height="18" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><line x1="45" y1="6" x2="25" y2="36" stroke="#22376e" stroke-width="3"/><line x1="45" y1="6" x2="65" y2="36" stroke="#22376e" stroke-width="3"/><path d="M28,30 Q45,18 62,30" stroke="#FFD24E" stroke-width="3.5" fill="none" stroke-linecap="round"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="12" y="42" width="76" height="18" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><line x1="50" y1="6" x2="28" y2="42" stroke="#22376e" stroke-width="3.5"/><line x1="50" y1="6" x2="72" y2="42" stroke="#22376e" stroke-width="3.5"/><path d="M30,35 Q50,20 70,35" stroke="#FFD24E" stroke-width="4" fill="none" stroke-linecap="round"/></svg>
               <div class="opt-name">Single Wrap</div>
-              <div class="opt-desc">One strap wraps over the rafter. Good hold.</div>
+              <div class="opt-desc">One strap wraps over the rafter. Good connection.</div>
             </div>
           </div>
           <div class="opt-card" data-group="roofWall" data-val="clips" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="10" y="36" width="70" height="18" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><line x1="45" y1="6" x2="25" y2="36" stroke="#22376e" stroke-width="3"/><line x1="45" y1="6" x2="65" y2="36" stroke="#22376e" stroke-width="3"/><rect x="35" y="30" width="20" height="10" rx="2" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="12" y="42" width="76" height="18" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><line x1="50" y1="6" x2="28" y2="42" stroke="#22376e" stroke-width="3.5"/><line x1="50" y1="6" x2="72" y2="42" stroke="#22376e" stroke-width="3.5"/><rect x="38" y="35" width="24" height="12" rx="3" fill="#4e9dd6" stroke="#22376e" stroke-width="1.5"/></svg>
               <div class="opt-name">Clips / Brackets</div>
-              <div class="opt-desc">Small metal clip on one side. Some credit.</div>
+              <div class="opt-desc">Small metal clip on one side only. Some credit.</div>
             </div>
           </div>
           <div class="opt-card" data-group="roofWall" data-val="toenails" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="10" y="36" width="70" height="18" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><line x1="45" y1="6" x2="25" y2="36" stroke="#22376e" stroke-width="3"/><line x1="45" y1="6" x2="65" y2="36" stroke="#22376e" stroke-width="3"/><line x1="30" y1="28" x2="24" y2="38" stroke="#888" stroke-width="2" stroke-linecap="round"/><line x1="33" y1="28" x2="28" y2="38" stroke="#888" stroke-width="2" stroke-linecap="round"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="12" y="42" width="76" height="18" rx="2" fill="#d0daea" stroke="#22376e" stroke-width="1.5"/><line x1="50" y1="6" x2="28" y2="42" stroke="#22376e" stroke-width="3.5"/><line x1="50" y1="6" x2="72" y2="42" stroke="#22376e" stroke-width="3.5"/><line x1="33" y1="33" x2="26" y2="44" stroke="#888" stroke-width="2.5" stroke-linecap="round"/><line x1="37" y1="33" x2="31" y2="44" stroke="#888" stroke-width="2.5" stroke-linecap="round"/></svg>
               <div class="opt-name">Toe Nails Only</div>
-              <div class="opt-desc">Just angled nails &mdash; older homes. No extra credit.</div>
+              <div class="opt-desc">Just angled nails &mdash; common in older homes. No extra credit.</div>
             </div>
           </div>
         </div>
@@ -310,40 +343,40 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
         <div class="step-val" id="sv5"></div>
       </div>
       <div class="step-body">
-        <p class="step-hint">Wind gets in through openings and can blow your roof off from the inside. This one makes a big difference.</p>
-        <div class="opt-grid cols2">
+        <div class="step-hint">Wind entering through openings creates internal pressure that can blow your roof off from the inside. This category has a huge impact on your discount.</div>
+        <div class="opt-grid">
           <div class="opt-card" data-group="openings" data-val="impact" onclick="selectOpt(this)">
             <div class="qrs-badge-blue"><div class="dot"></div>QRS RECOMMENDED</div>
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="12" y="6" width="66" height="46" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="2"/><rect x="17" y="11" width="27" height="36" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="47" y="11" width="25" height="36" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><path d="M20,28 L45,8 L70,28 L70,50 L45,56 L20,50Z" fill="#FFD24E" opacity=".3" stroke="#FFD24E" stroke-width="1.5"/><text x="45" y="34" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="800" fill="#22376e">IMPACT</text></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="10" y="6" width="80" height="52" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="2"/><rect x="15" y="11" width="33" height="42" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="52" y="11" width="33" height="42" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><path d="M14,32 L50,6 L86,32 L86,58 L50,64 L14,58Z" fill="#FFD24E" opacity=".25" stroke="#FFD24E" stroke-width="1.5"/><text x="50" y="38" text-anchor="middle" font-family="Montserrat,sans-serif" font-size="10" font-weight="900" fill="#22376e">IMPACT</text></svg>
               <div class="opt-name">Impact-Resistant Glass</div>
-              <div class="opt-desc">Special glass rated to stop debris. Full home protected.</div>
+              <div class="opt-desc">Entire home has glass or film rated to stop windborne debris.</div>
               <div class="best-badge">BIGGEST DISCOUNT</div>
             </div>
           </div>
           <div class="opt-card" data-group="openings" data-val="hurricane" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="12" y="6" width="66" height="46" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="2"/><rect x="17" y="11" width="27" height="36" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="47" y="11" width="25" height="36" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><line x1="21" y1="11" x2="21" y2="47" stroke="#22376e" stroke-width="1.2" opacity=".5"/><line x1="26" y1="11" x2="26" y2="47" stroke="#22376e" stroke-width="1.2" opacity=".5"/><line x1="31" y1="11" x2="31" y2="47" stroke="#22376e" stroke-width="1.2" opacity=".5"/><line x1="36" y1="11" x2="36" y2="47" stroke="#22376e" stroke-width="1.2" opacity=".5"/><line x1="41" y1="11" x2="41" y2="47" stroke="#22376e" stroke-width="1.2" opacity=".5"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="10" y="6" width="80" height="52" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="2"/><rect x="15" y="11" width="33" height="42" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="52" y="11" width="33" height="42" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><line x1="19" y1="11" x2="19" y2="53" stroke="#22376e" stroke-width="1.5" opacity=".5"/><line x1="25" y1="11" x2="25" y2="53" stroke="#22376e" stroke-width="1.5" opacity=".5"/><line x1="31" y1="11" x2="31" y2="53" stroke="#22376e" stroke-width="1.5" opacity=".5"/><line x1="37" y1="11" x2="37" y2="53" stroke="#22376e" stroke-width="1.5" opacity=".5"/><line x1="43" y1="11" x2="43" y2="53" stroke="#22376e" stroke-width="1.5" opacity=".5"/></svg>
               <div class="opt-name">Hurricane Shutters</div>
-              <div class="opt-desc">Roll-down or accordion shutters on all openings.</div>
+              <div class="opt-desc">Roll-down or accordion shutters on all windows and doors.</div>
             </div>
           </div>
           <div class="opt-card" data-group="openings" data-val="basic" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="12" y="6" width="66" height="46" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="2"/><rect x="17" y="11" width="27" height="36" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="47" y="11" width="25" height="36" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="52" y="12" width="14" height="34" rx="1" fill="#4e9dd6" opacity=".7" stroke="#22376e" stroke-width="1"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="10" y="6" width="80" height="52" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="2"/><rect x="15" y="11" width="33" height="42" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="52" y="11" width="33" height="42" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="57" y="12" width="22" height="40" rx="2" fill="#4e9dd6" opacity=".65" stroke="#22376e" stroke-width="1"/></svg>
               <div class="opt-name">Storm Panels</div>
-              <div class="opt-desc">Removable panels you put up before storms.</div>
+              <div class="opt-desc">Removable panels stored and installed before a storm.</div>
             </div>
           </div>
           <div class="opt-card" data-group="openings" data-val="none" onclick="selectOpt(this)">
             <div class="opt-card-inner">
-              <svg width="90" height="58" viewBox="0 0 90 58"><rect x="12" y="6" width="66" height="46" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="2"/><rect x="17" y="11" width="27" height="36" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="47" y="11" width="25" height="36" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/></svg>
+              <svg width="100" height="64" viewBox="0 0 100 64"><rect x="10" y="6" width="80" height="52" rx="3" fill="#d0daea" stroke="#22376e" stroke-width="2"/><rect x="15" y="11" width="33" height="42" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/><rect x="52" y="11" width="33" height="42" rx="2" fill="#a8d4f5" stroke="#22376e" stroke-width="1.5"/></svg>
               <div class="opt-name">No Protection</div>
-              <div class="opt-desc">Standard windows with no storm upgrades.</div>
+              <div class="opt-desc">Standard windows with no storm protection installed.</div>
             </div>
           </div>
         </div>
-        <button class="next-btn" onclick="nextStep(5)">See My Savings &rarr;</button>
+        <button class="next-btn" onclick="nextStep(5)">Calculate My Savings &rarr;</button>
       </div>
     </div>
 
@@ -352,9 +385,12 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
   <!-- RESULTS -->
   <div class="results" id="resultsSection">
     <div class="res-hero">
-      <div class="big-save" id="rBigSave">$0</div>
-      <div class="save-label">Estimated annual savings</div>
-      <div class="per-month" id="rPerMonth"></div>
+      <div class="res-hero-inner">
+        <div class="res-label-top">Your estimated annual savings</div>
+        <div class="big-save" id="rBigSave">$0</div>
+        <div class="per-year">per year on your homeowners insurance</div>
+        <div class="per-month-pill" id="rPerMonth"></div>
+      </div>
     </div>
     <div class="res-stats">
       <div class="stat-card"><div class="sv" id="rPct">0%</div><div class="sl">Premium reduction</div></div>
@@ -372,27 +408,41 @@ body{font-family:'Montserrat',sans-serif;background:#dce3ed;color:#22376e;font-s
       </div>
     </div>
     <div class="cta-box">
-      <p>A licensed Quality Roofing inspector will document every qualifying feature so your insurer applies full credit. Inspections typically cost $150&ndash;$200.</p>
-      <a class="cta-btn" href="tel:8507760770">&#128222; Call to Schedule: (850) 776-0770</a>
+      <div class="cta-headline">Ready to lock in your savings?</div>
+      <p>A Quality Roofing inspector will document every qualifying feature so your insurer applies the full discount at your next renewal. Inspections typically cost $150&ndash;$200 and pay for themselves fast.</p>
+      <a class="cta-btn" href="tel:8507760770">&#128222;&nbsp; Call to Schedule Your Inspection &mdash; (850) 776-0770</a>
       <div class="cta-contact">Or visit <strong>QualityRoofingSolutions.com</strong></div>
       <button class="restart-btn" onclick="restart()">&larr; Start Over</button>
     </div>
   </div>
 
 </div><!-- end main -->
+</div><!-- end page-body -->
 
-<!-- FOOTER — full bleed -->
+<!-- FOOTER -->
 <div class="footer">
-  <div class="inner">
-    <span>Estimates are for reference only. Actual savings vary by insurer.</span>
+  <div class="footer-inner">
+    <span>Estimates are for reference only. Actual savings vary by insurer and policy.</span>
     <span class="site">QualityRoofingSolutions.com</span>
   </div>
 </div>
 
 <script>
 var answers={roofShape:null,deckAttach:null,roofWall:null,openings:null};
-var optLabels={hip:'Hip',gable:'Gable',flat:'Flat',combo:'Mixed','8d4':'Close Pattern','8d6stag':'Staggered','8d6':'Wide Spacing','unknown':'Not Sure',doubleWraps:'Double Wraps',singleWraps:'Single Wrap',clips:'Clips',toenails:'Toe Nails',impact:'Impact Glass',hurricane:'Shutters',basic:'Storm Panels',none:'None'};
-function selectOpt(el){var g=el.dataset.group;answers[g]=el.dataset.val;document.querySelectorAll('[data-group="'+g+'"]').forEach(function(c){c.classList.remove('selected')});el.classList.add('selected')}
+var optLabels={hip:'Hip Roof',gable:'Gable Roof',flat:'Flat / Low Slope',combo:'Mixed / Combo','8d4':'Close Pattern','8d6stag':'Staggered','8d6':'Wider Spacing','unknown':'Not Sure',doubleWraps:'Double Wraps',singleWraps:'Single Wrap',clips:'Clips',toenails:'Toe Nails',impact:'Impact Glass',hurricane:'Shutters',basic:'Storm Panels',none:'No Protection'};
+
+function updateProgress(step){
+  var pct=Math.round(((step-1)/5)*100);
+  document.getElementById('progressFill').style.width=pct+'%';
+  document.getElementById('progressLabel').textContent='Step '+step+' of 5';
+  document.getElementById('progressPct').textContent=pct+'% complete';
+}
+
+function selectOpt(el){
+  var g=el.dataset.group;answers[g]=el.dataset.val;
+  document.querySelectorAll('[data-group="'+g+'"]').forEach(function(c){c.classList.remove('selected')});
+  el.classList.add('selected');
+}
 function toggleStep(n){document.getElementById('step'+n).classList.toggle('active')}
 function nextStep(n){
   var sg={1:null,2:'roofShape',3:'deckAttach',4:'roofWall',5:'openings'};
@@ -401,8 +451,8 @@ function nextStep(n){
   if(g&&answers[g]){document.getElementById('sv'+n).textContent=optLabels[answers[g]]||'';document.getElementById('step'+n).classList.add('done')}
   if(n===1){var p=parseFloat(document.getElementById('premium').value)||0;document.getElementById('sv1').textContent='$'+Math.round(p).toLocaleString()+'/yr';document.getElementById('step1').classList.add('done')}
   document.getElementById('step'+n).classList.remove('active');
-  if(n<5){var nx=document.getElementById('step'+(n+1));nx.classList.add('active');nx.scrollIntoView({behavior:'smooth',block:'start'})}
-  else showResults();
+  if(n<5){var nx=document.getElementById('step'+(n+1));nx.classList.add('active');updateProgress(n+1);nx.scrollIntoView({behavior:'smooth',block:'start'})}
+  else{document.getElementById('progressFill').style.width='100%';document.getElementById('progressLabel').textContent='Complete!';document.getElementById('progressPct').textContent='100% complete';showResults();}
 }
 function showResults(){
   document.getElementById('stepsWrap').style.display='none';
@@ -410,9 +460,8 @@ function showResults(){
   var premium=parseFloat(document.getElementById('premium').value)||0;
   var sm={FL:1.0,TX:0.75,SC:0.7,NC:0.7,GA:0.65,AL:0.65,LA:0.7,MS:0.65,VA:0.55,OTHER:0.5}[document.getElementById('statesel').value]||0.5;
   var disc=[];
-  var rs=answers.roofShape;
-  if(rs==='hip')disc.push({name:'Hip roof shape',pct:25*sm,tag:'best'});
-  if(rs==='combo')disc.push({name:'Combination roof',pct:8*sm,tag:'ok'});
+  if(answers.roofShape==='hip')disc.push({name:'Hip roof shape',pct:25*sm,tag:'best'});
+  if(answers.roofShape==='combo')disc.push({name:'Combination roof',pct:8*sm,tag:'ok'});
   var dk={'8d4':{pct:18,tag:'best'},'8d6stag':{pct:10,tag:'ok'},'8d6':{pct:5,tag:'ok'},'unknown':{pct:0}};
   var d=dk[answers.deckAttach];if(d&&d.pct>0)disc.push({name:'Roof deck attachment',pct:d.pct*sm,tag:d.tag});
   var rw={doubleWraps:{pct:23,tag:'best'},singleWraps:{pct:14,tag:'good'},clips:{pct:8,tag:'ok'},toenails:{pct:0}};
@@ -422,15 +471,15 @@ function showResults(){
   var tp=Math.min(disc.reduce(function(s,x){return s+x.pct},0),65);
   var ta=premium*tp/100;var np=premium-ta;
   document.getElementById('rBigSave').textContent='$'+Math.round(ta).toLocaleString();
-  document.getElementById('rPerMonth').textContent=ta>0?'That\'s $'+Math.round(ta/12).toLocaleString()+' saved every month':'Contact us \u2014 an inspection may still find savings';
+  document.getElementById('rPerMonth').textContent=ta>0?'$'+Math.round(ta/12).toLocaleString()+' saved every single month':'Contact us \u2014 an inspection may still find savings';
   document.getElementById('rPct').textContent=Math.round(tp)+'%';
   document.getElementById('rNew').textContent='$'+Math.round(np).toLocaleString();
   var tl={best:'Top credit',good:'Good credit',ok:'Some credit'};
-  var rows=disc.map(function(x){return '<div class="bk-row"><span>'+x.name+'<span class="bk-tag tag-'+x.tag+'">'+tl[x.tag]+'</span></span><span style="font-weight:700;color:#22376e">\u2212$'+Math.round(premium*x.pct/100).toLocaleString()+'/yr</span></div>'}).join('');
-  if(!rows)rows='<div class="bk-row" style="color:#999;font-size:12px;justify-content:center;padding:16px">No credits estimated \u2014 call us, an inspection may still help</div>';
+  var rows=disc.map(function(x){return '<div class="bk-row"><span style="color:#22376e;font-weight:600">'+x.name+'<span class="bk-tag tag-'+x.tag+'">'+tl[x.tag]+'</span></span><span style="font-weight:800;color:#22376e">\u2212$'+Math.round(premium*x.pct/100).toLocaleString()+'/yr</span></div>'}).join('');
+  if(!rows)rows='<div class="bk-row" style="color:#9aa5b8;font-size:12px;justify-content:center;padding:18px">No credits estimated \u2014 call us, an inspection may still uncover savings</div>';
   rows+='<div class="bk-row"><span>Total estimated savings</span><span>\u2212$'+Math.round(ta).toLocaleString()+'/yr</span></div>';
   document.getElementById('bkRows').innerHTML=rows;
-  if(ta>0){var mo=Math.round(175/(ta/12));document.getElementById('inspTitle').textContent='Inspection pays for itself in '+mo+' month'+(mo===1?'':'s');document.getElementById('inspBody').textContent='A wind mitigation inspection costs about $150\u2013$200. Your insurer applies the discount every year \u2014 and the report is valid for up to 5 years.';document.getElementById('inspNote').style.display='flex'}
+  if(ta>0){var mo=Math.round(175/(ta/12));document.getElementById('inspTitle').textContent='Inspection pays for itself in '+mo+' month'+(mo===1?'':'s');document.getElementById('inspBody').textContent='A wind mitigation inspection costs about $150\u2013$200. Your insurer applies the discount every year at renewal \u2014 and the report stays valid for up to 5 years.';document.getElementById('inspNote').style.display='flex'}
 }
 function restart(){
   Object.keys(answers).forEach(function(k){answers[k]=null});
@@ -439,8 +488,10 @@ function restart(){
   for(var i=1;i<=5;i++){var s=document.getElementById('step'+i);s.classList.remove('active','done');document.getElementById('sv'+i).textContent=''}
   document.getElementById('step1').classList.add('active');
   document.querySelectorAll('.opt-card').forEach(function(c){c.classList.remove('selected')});
+  updateProgress(1);
   window.scrollTo({top:0,behavior:'smooth'});
 }
+updateProgress(1);
 </script>
 </body>
 </html>
